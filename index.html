@@ -1,0 +1,235 @@
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Over+the+Rainbow" rel="stylesheet">
+
+<title>Final Project- Part 2</title>
+<style type="text/css">
+
+	#box 		{	position:			relative;
+					top:				500px;
+					left:				0px;
+					width:				4000px;
+					height:				2200px;
+					background-color:	#FFF6A7;   
+					z-index: 			-4;}
+
+	#box2		{	position:			absolute;
+					top:				0px;
+					left:				4000px;
+					width:				4000px;
+					height:				2200px;
+					background-color:	#BCB8B9;
+					z-index:			-4;}
+	#text		{	position:			absolute;
+					top:				-500px;
+					left:				3000px;
+					z-index:			2; 
+					font-size:			700px;
+					color:				white;
+					background:			none;
+					border:				none;
+					font-family: 'Over the Rainbow', cursive;}
+					
+	
+	#happybaby 	{	position:			absolute;
+					top:				50px;
+					left:				430px;
+					visibility:			visible;					
+					z-index:			-1; }
+					
+	#baby 		{	position:			absolute;
+					top:				50px;
+					left:				430px;
+					visibility:			hidden;	
+					z-index:			-1; }
+				
+	
+	#sadbaby 	{	position:			absolute;
+					top:				50px;
+					left:				430px;
+					visibility:			hidden;	
+					z-index:			-1; }	
+					
+	#tear		{	position:			absolute;
+					top:				720px;
+					left:				950px;
+					visibility:			hidden;						
+					z-index:			2; }	
+					
+	#tear2		{	position:			absolute;
+					top:				720px;
+					left:				1500px;
+					visibility:			hidden;						
+					z-index:			3; }
+					
+	#tear3		{	position:			absolute;
+					top:				720px;
+					left:				950px;
+					visibility:			hidden;						
+					z-index:			2; }	
+					
+					
+	#teddy		{	position:			absolute;
+					top:				790px;
+					left:				2200px;
+					z-index:			3; }
+					
+	#ball		{	position:			absolute;
+					top:				0px;
+					left:				2200px;
+					z-index:			3; 
+					visibility:			hidden;}			
+					
+	#button 	{	position: 			absolute;
+					top:				290px; 					
+					left:				2680px;
+					z-index:			6; 
+					font-size:			700px;
+					color:				white;
+					background:			none;
+					border:				none;
+					outline:			none;
+					font-family: 'Archivo Black', sans-serif;}
+					
+	#button:hover	{	color:			gray;}				
+
+			
+	
+</style>
+
+</head>
+
+<script type="text/javascript">
+	
+	var cycle = 0; 
+	var timer1;
+	
+	
+	
+	function moveTeddy(a,b) {
+		var x = a + document.getElementById("teddy").offsetLeft;
+		document.getElementById("teddy").style.left = x + "px";			
+		var y = b + document.getElementById("teddy").offsetTop;
+		document.getElementById("teddy").style.top = y + "px";	
+		cycle++;
+	} 
+	
+	function moveTear(a,b) {
+		var x = a + document.getElementById("tear").offsetLeft;
+		document.getElementById("tear").style.left = x + "px";			
+		var y = b + document.getElementById("tear").offsetTop;
+		document.getElementById("tear").style.top = y + "px";	
+		cycle++;
+	} 	
+
+	function moveTear2(a,b) {
+		var x = a + document.getElementById("tear2").offsetLeft;
+		document.getElementById("tear2").style.left = x + "px";			
+		var y = b + document.getElementById("tear2").offsetTop;
+		document.getElementById("tear2").style.top = y + "px";	
+		cycle++;
+	} 	
+	
+	function moveTear3(a,b) {
+		var x = a + document.getElementById("tear3").offsetLeft;
+		document.getElementById("tear3").style.left = x + "px";			
+		var y = b + document.getElementById("tear3").offsetTop;
+		document.getElementById("tear3").style.top = y + "px";	
+		cycle++;
+	} 	
+
+		function moveBall(a,b) {
+		var x = a + document.getElementById("ball").offsetLeft;
+		document.getElementById("ball").style.left = x + "px";			
+		var y = b + document.getElementById("ball").offsetTop;
+		document.getElementById("ball").style.top = y + "px";	
+		cycle++;
+	} 
+	
+	function doIt() {
+		if (cycle < 50) {
+			moveTeddy(10,0);
+		} else if (cycle == 50) {			
+			document.getElementById("happybaby").style.visibility = "hidden";
+			document.getElementById("baby").style.visibility = "visible";
+			cycle++;
+		} else if (cycle < 280) {
+			moveTeddy(10,0);
+		} else if (cycle == 280) {	
+			document.getElementById("baby").style.visibility = "hidden";
+			document.getElementById("sadbaby").style.visibility = "visible";
+			cycle++;			
+		} else if (cycle < 400) {
+			document.getElementById("tear").style.visibility = "visible";
+			moveTear(0,5);
+		} else if (cycle ==400) {	
+			document.getElementById("tear").style.visibility = "hidden";
+			cycle++;
+		} else if (cycle < 500) {
+			document.getElementById("tear2").style.visibility = "visible";
+			moveTear2(0,5);
+		} else if (cycle ==500) {	
+			document.getElementById("tear2").style.visibility = "hidden";
+			cycle++;
+		} else if (cycle < 600) {
+			document.getElementById("tear3").style.visibility = "visible";
+			moveTear3(0,5);	
+		} else if (cycle ==600) {	
+			document.getElementById("tear3").style.visibility = "hidden";
+			cycle++;
+		} else if (cycle <725) {
+			document.getElementById("ball").style.visibility = "visible";
+			moveBall(0,10);	
+		} else if (cycle == 725) {
+			document.getElementById("sadbaby").style.visibility = "hidden";
+			document.getElementById("baby").style.visibility = "visible";			
+			cycle++;
+		} else if (cycle < 825) {
+			moveBall(0,-10);
+		} else if (cycle < 900) {
+			moveBall(0,10);
+		} else if (cycle < 950) {
+			moveBall(0,-10);
+		} else if (cycle < 975) {
+			moveBall(0,10);		
+		} else if (cycle == 975) {
+			document.getElementById("baby").style.visibility = "hidden";
+			document.getElementById("happybaby").style.visibility = "visible";			
+		} else {
+			clearInterval(timer1);			
+		}
+	}	
+
+	function startCry() {
+		timer1 = setInterval(doIt, 10);  
+	}
+
+</script>
+
+
+<body  style="background-color:white">
+
+
+<div id="box">
+	<img src="happybaby1.png" alt="Happy Baby" id="happybaby" />
+	<img src="baby1.png" alt="Baby" id="baby" />
+	<img src="sadbaby1.png" alt="Sad Baby" id="sadbaby" />	
+	
+	<img src="tear.png" alt="Tear" id="tear" />	
+	<img src="tear2.png" alt="Tear2" id="tear2" />	
+	<img src="tear3.png" alt="Tear3" id="tear3" />		
+	
+	<img src="teddy.png" alt="Teddy" id="teddy" />	
+	
+	<img src="ball.png" alt="Ball" id="ball" />	
+	
+	<p id="text">Baby</p>
+	
+	<div id="box2"></div>
+</div>
+
+	<input type="button" id="button" value="Cry" onclick="startCry()" />	
+
+</body>
+</html>
